@@ -8,6 +8,9 @@ import { FootComponent } from './modules/foot/foot.component';
 import { LoginComponent } from './modules/login/login.component';
 import { ContainerLoginComponent } from './modules/container-login/container-login.component';
 
+import { SharedModule } from './modules/shared/shared.module';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,10 +18,15 @@ import { ContainerLoginComponent } from './modules/container-login/container-log
     FootComponent,
     LoginComponent,
     ContainerLoginComponent
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule,
+
+    
+ 
   ],
   providers: [],
   bootstrap: [AppComponent]
