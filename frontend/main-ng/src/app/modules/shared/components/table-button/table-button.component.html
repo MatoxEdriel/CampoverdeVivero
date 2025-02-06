@@ -1,1 +1,13 @@
-<p>table-button works!</p>
+
+
+
+<!-- //Implementar loq ue es el codigo  -->
+
+<button class="btn btn-{{[tableButtonProperties.styleButtonUpdate]}} m-3" (click)="clickUpdateEvent()" *ngIf="[tableButtonProperties.showUpdate]" type="button" >
+    <i class=" fa fa-{{[tableButtonProperties.styleIconUpdate]}}"></i>
+    {{tableButtonProperties.labelUpdate}}
+</button>
+<button class="btn btn-{{tableButtonProperties.styleButtonDelete}}  m-3" (click)="clickDeleteEvent()" *ngIf="[tableButtonProperties.showDelete]" type="button" >
+    <i class="fa fa-{{tableButtonProperties.styleIconDelete}}"></i>
+    {{tableButtonProperties.labelDelete}}
+</button>
