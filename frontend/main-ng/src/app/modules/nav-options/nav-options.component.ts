@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { ISignUp } from '../../interfaces/login.interface';
 
+
 @Component({
   selector: 'app-nav-options',
   templateUrl: './nav-options.component.html',

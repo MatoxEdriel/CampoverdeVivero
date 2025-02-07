@@ -1,0 +1,66 @@
+<div class="d-flex justify-content-end w-75 mt-2 mb-2">
+    <div>
+        <button class="btn btn-success" type="button"> <i class="fa fa-save"></i>Grabar</button>
+    </div>
+</div>
+
+<div>
+    <table class="table">
+        <thead>
+            <th>
+                #
+            </th>
+            <th>
+                First name
+            </th>
+            <th>
+                Last name
+            </th>
+            <th>
+                Genre
+            </th>
+            <th>
+                Phone
+            </th>
+            <th>
+                Actions
+            </th>
+        </thead>
+        <tbody>
+
+            <tr *ngFor="let person of lstData">
+                <td>
+                    {{ person.id }}
+                </td>
+                <td>
+                  {{ person.firstname }}  
+                </td>
+                <td>
+                   {{ person.lastname }}
+                </td>
+                <td [ngSwitch]="person.genre">
+                    <div *ngSwitchCase="'M'">
+                       Male
+                    </div>
+                    <div *ngSwitchCase="'F'">
+                        Female
+                    </div>
+                    <div *ngSwitchDefault>
+                        Genero no definido
+                    </div>
+                </td>
+                <!-- <td>
+                    {{ person.genre }}
+                </td> -->
+                <td>
+                    {{ person.phone }}
+                </td>
+                <td>
+                    <app-table-button [dataPerson]="person"  (saveEvent)="addPersonToUpdate($event)"> 
+                    </app-table-button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

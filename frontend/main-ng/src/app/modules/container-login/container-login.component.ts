@@ -2,6 +2,7 @@ import { Component, viewChild, ViewChild } from '@angular/core';
 import { LoginComponent } from '../login/login.component';
 import { NavOptionsComponent } from '../nav-options/nav-options.component';
 
+
 @Component({
   selector: 'app-container-login',
   templateUrl: './container-login.component.html',

@@ -26,13 +26,13 @@
         </div>
         <div class="d-flex justify-content-center">
 
-            <button type="submit" class="btn btn-primary " (click)="loginProces()">Access</button>
+            <button type="submit" class="btn btn-primary " [routerLink]="'/dashboard'" (click)="loginProces()">Access</button>
         
         
         </div>
 
         <div class="d-flex justify-content-center">
-            <a routerLink="/login" class="text-decoration-none" (click)="clicEventEmitter()">
+            <a routerLink="" class="text-decoration-none" (click)="clicEventEmitter()">
                 Don't have an account? Let's create one!
               </a>
             

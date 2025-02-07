@@ -1,0 +1,97 @@
+<div class="p-4 control-form d-flex justify-content-center align-items-center vh-100">
+    <table class="m-4 table table-hover table-sm table-bordered table-responsive">
+        <thead class="m-1">
+            <th>
+                #
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Brand
+            </th>
+            <th>
+                Model
+            </th>
+            <th>
+                realease Date
+            </th>
+            <th>
+                    OS
+            </th>
+            <th>
+                screen Size
+            </th>
+            <th>
+                ram
+            </th>
+            <th>
+                storage
+            </th>
+            <th>
+                price
+            </th>
+            <th>
+                options
+            </th>
+
+
+
+        </thead>
+        <tbody>
+
+
+            <tr *ngFor="let device of lstDevice">
+                <td>
+                    {{ device.id }}
+                </td>
+                <td>
+                    {{ device.name }}
+                </td>
+                <td>
+                    {{ device.brand }}
+                </td>
+
+                <td>
+                    {{ device.model }}
+                </td>
+
+                <td>
+                    {{ device.release_date }}
+                </td>
+                <!--Aplicaremos nSwitch -->
+                <td [ngSwitch]="device.os">
+                    <div *ngSwitchCase="'apple'">IOS</div>
+                    <div *ngSwitchCase="'microsoft'">microsoft</div>
+                    <div *ngSwitchCase="'samsung'">android</div>
+                    <div *ngSwitchDefault>product not found</div>
+                </td>
+
+                <td>
+                    {{ device.screen_size }}
+                </td>
+
+                <td>
+                    {{device.ram}}
+                </td>
+
+                <td>
+                    {{device.storage}}
+                </td>
+
+                <td>
+                    {{device.price}}
+                </td>
+
+                <td>
+
+                    <app-crud-button [dataDevice]="device">
+                    </app-crud-button>
+
+
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
