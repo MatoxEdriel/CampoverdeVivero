@@ -1,13 +1,50 @@
-
-
-
 <!-- //Implementar loq ue es el codigo  -->
 
-<button class="btn btn-{{[tableButtonProperties.styleButtonUpdate]}} m-3" (click)="clickUpdateEvent()" *ngIf="[tableButtonProperties.showUpdate]" type="button" >
+<button class="btn btn-{{[tableButtonProperties.styleButtonUpdate]}} m-3" (click)="clickUpdateEvent()"
+    *ngIf="[tableButtonProperties.showUpdate]" type="button" data-bs-toggle="modal"
+
+    [attr.data-bs-target]="'#'+dataPerson.id">
+    
     <i class=" fa fa-{{[tableButtonProperties.styleIconUpdate]}}"></i>
     {{tableButtonProperties.labelUpdate}}
 </button>
-<button class="btn btn-{{tableButtonProperties.styleButtonDelete}}  m-3" (click)="clickDeleteEvent()" *ngIf="[tableButtonProperties.showDelete]" type="button" >
+<button class="btn btn-{{tableButtonProperties.styleButtonDelete}}  m-3" (click)="clickDeleteEvent()"
+    *ngIf="[tableButtonProperties.showDelete]" type="button">
     <i class="fa fa-{{tableButtonProperties.styleIconDelete}}"></i>
     {{tableButtonProperties.labelDelete}}
 </button>
+
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="{{dataPerson.id}}" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5">Actualizar Persona</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+
+                <label for="firstname">Nombre: </label>
+                <input class="form-control" type="text" name="firstname" [(ngModel)]="firstNameLocal">
+
+                <label for="lastname">Apellido: </label>
+                <input class="form-control" type="text" name="lastname" [(ngModel)]="lastNameLocal">
+                
+                <label for="genre">Genre: </label>
+                <input class="form-control" type="text" name="genre" [(ngModel)]="dataPerson.genre">
+
+                <label for="phone">Telefono: </label>
+                <input class="form-control" type="text" name="phone" [(ngModel)]="phoneLocal">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click)="clickSaveEvent()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

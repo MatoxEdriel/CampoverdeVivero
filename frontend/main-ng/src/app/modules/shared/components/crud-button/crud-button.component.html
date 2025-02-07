@@ -1,0 +1,135 @@
+<!-- CREATE , RED, UPDATE, DELETE  -->
+
+
+
+
+<!--CREATE-->
+
+
+<button class="btn btn-{{[crudButtonProperies.styleButtonCreate]}} m-1" (click)="clickCreateEvent()"
+    *ngIf="[crudButtonProperies.showCreate]" type="button" data-bs-toggle="modal"
+    [attr.data-bs-target]="'#'+dataDevice.id">
+    <i class=" fa fa-{{[crudButtonProperies.styleIconCreate]}}"></i>
+    {{crudButtonProperies.labelCreate}}
+</button>
+
+
+<div class="modal fade" id="{{dataDevice.id}}">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5">Update Device</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+
+                <label for="name">Name: </label>
+                <input class="form-control" type="text" name="name" [(ngModel)]="nameLocal">
+
+                <label for="brand">Brand: </label>
+                <input class="form-control" type="text" name="lastname" [(ngModel)]="brandLocal">
+
+                <label for="model">Model: </label>
+                <input class="form-control" type="text" name="genre" [(ngModel)]="modelLocal">
+
+                <label for="releaseDateLocal">Release Date: </label>
+                <input class="form-control" type="text" name="phone" [(ngModel)]="releaseDateLocal">
+            </div>
+            <!-- <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click)="clickSaveEvent()">Save</button>
+            </div> -->
+        </div>
+    </div>
+</div>
+
+<button class="btn btn-{{crudButtonProperies.styleButtonRead}} m-1" (click)="clickReadEvent()"
+    *ngIf="crudButtonProperies.showRead" type="button" data-bs-toggle="modal"
+    [attr.data-bs-target]="'#'+dataDevice.id">
+    <i class="fa fa-{{crudButtonProperies.styleIconRead}}"></i>
+    {{crudButtonProperies.labelRead}}
+</button>
+
+<div class="modal fade" id="{{dataDevice.id}}">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5">View Device</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <label>Name: </label>
+                <p>{{dataDevice.name}}</p>
+
+                <label>Brand: </label>
+                <p>{{dataDevice.brand}}</p>
+
+                <label>Model: </label>
+                <p>{{dataDevice.model}}</p>
+
+                <label>Release Date: </label>
+                <p>{{dataDevice.release_date}}</p>
+
+                <label>OS: </label>
+                <p>{{dataDevice.os}}</p>
+
+                <label>Screen Size: </label>
+                <p>{{dataDevice.screen_size}}</p>
+
+                <label>RAM: </label>
+                <p>{{dataDevice.ram}}</p>
+
+                <label>Storage: </label>
+                <p>{{dataDevice.storage}}</p>
+
+                <label>Price: </label>
+                <p>{{dataDevice.price}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button class="btn btn-{{crudButtonProperies.styleButtonUpdate}} m-1" (click)="clickUpdateEvent()"
+    *ngIf="crudButtonProperies.showUpdate" type="button" data-bs-toggle="modal"
+    [attr.data-bs-target]="'#'+dataDevice.id">
+    <i class="fa fa-{{crudButtonProperies.styleIconUpdate}}"></i>
+    {{crudButtonProperies.labelUpdate}}
+</button>
+
+<div class="modal fade" id="{{dataDevice.id}}">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5">Update Device</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <label for="name">Name: </label>
+                <input class="form-control" type="text" name="name" [(ngModel)]="nameLocal">
+
+                <label for="brand">Brand: </label>
+                <input class="form-control" type="text" name="lastname" [(ngModel)]="brandLocal">
+
+                <label for="model">Model: </label>
+                <input class="form-control" type="text" name="genre" [(ngModel)]="modelLocal">
+
+                <label for="releaseDateLocal">Release Date: </label>
+                <input class="form-control" type="text" name="phone" [(ngModel)]="releaseDateLocal">
+            </div>
+            <!-- <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click)="clickSaveEvent()">Save</button>
+            </div> -->
+        </div>
+    </div>
+</div>
+
+
+<button class="btn btn-{{crudButtonProperies.styleButtonDelete}} m-1" (click)="clickDeleteEvent()"
+    *ngIf="crudButtonProperies.showDelete" type="button" >
+    <i class="fa fa-{{crudButtonProperies.styleIconDelete}}"></i>
+    {{crudButtonProperies.labelDelete}}
+</button>
+
+

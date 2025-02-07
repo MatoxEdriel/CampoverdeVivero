@@ -2,19 +2,28 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TableButtonComponent } from './components/table-button/table-button.component';
 import { FootPlaceComponent } from './components/foot-place/foot-place.component';
+import { PersonTableComponent } from './components/person-table/person-table.component';
+import { FormsModule } from '@angular/forms';
+import { CrudButtonComponent } from './components/crud-button/crud-button.component';
 
 
 
 @NgModule({
   declarations: [
     TableButtonComponent,
-    FootPlaceComponent
+    FootPlaceComponent,
+    PersonTableComponent,
+    CrudButtonComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
+
   ],
   exports: [
-    TableButtonComponent
+    TableButtonComponent,
+    PersonTableComponent,
+    CrudButtonComponent
   ]
 })
 export class SharedModule { }
