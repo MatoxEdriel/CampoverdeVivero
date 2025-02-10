@@ -11,6 +11,8 @@ import { SharedModule } from './modules/shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { TableDeviceComponent } from './modules/table-device/table-device.component';
 import { NavOptionsComponent } from './modules/nav-options/nav-options.component';
+import { DashboardModule } from './modules/dashboard/dashboard.module';
+import { NavHomeComponent } from './modules/dashboard/components/nav-home/nav-home.component';
 
 
 
@@ -28,7 +30,9 @@ import { NavOptionsComponent } from './modules/nav-options/nav-options.component
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    DashboardModule,
+  
 
 
 
