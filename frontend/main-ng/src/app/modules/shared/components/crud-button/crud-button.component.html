@@ -6,7 +6,7 @@
 <!--CREATE-->
 
 
-<button class="btn btn-{{[crudButtonProperies.styleButtonCreate]}} m-1" (click)="clickCreateEvent()"
+<button class="btn-sm btn btn-{{[crudButtonProperies.styleButtonCreate]}} m-1" (click)="clickCreateEvent()"
     *ngIf="[crudButtonProperies.showCreate]" type="button" data-bs-toggle="modal"
     [attr.data-bs-target]="'#'+dataDevice.id">
     <i class=" fa fa-{{[crudButtonProperies.styleIconCreate]}}"></i>
@@ -18,7 +18,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5">Update Device</h1>
+                <h1 class="modal-title fs-5">Register new device</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -44,7 +44,10 @@
     </div>
 </div>
 
-<button class="btn btn-{{crudButtonProperies.styleButtonRead}} m-1" (click)="clickReadEvent()"
+
+
+
+<button class="btn-sm btn btn-{{crudButtonProperies.styleButtonRead}} m-1" (click)="clickReadEvent()"
     *ngIf="crudButtonProperies.showRead" type="button" data-bs-toggle="modal"
     [attr.data-bs-target]="'#'+dataDevice.id">
     <i class="fa fa-{{crudButtonProperies.styleIconRead}}"></i>
@@ -90,7 +93,7 @@
     </div>
 </div>
 
-<button class="btn btn-{{crudButtonProperies.styleButtonUpdate}} m-1" (click)="clickUpdateEvent()"
+<button class="btn-sm btn btn-{{crudButtonProperies.styleButtonUpdate}} m-1" (click)="clickUpdateEvent()"
     *ngIf="crudButtonProperies.showUpdate" type="button" data-bs-toggle="modal"
     [attr.data-bs-target]="'#'+dataDevice.id">
     <i class="fa fa-{{crudButtonProperies.styleIconUpdate}}"></i>
@@ -126,7 +129,7 @@
 </div>
 
 
-<button class="btn btn-{{crudButtonProperies.styleButtonDelete}} m-1" (click)="clickDeleteEvent()"
+<button class="btn-sm btn btn-{{crudButtonProperies.styleButtonDelete}} m-1" (click)="clickDeleteEvent()"
     *ngIf="crudButtonProperies.showDelete" type="button" >
     <i class="fa fa-{{crudButtonProperies.styleIconDelete}}"></i>
     {{crudButtonProperies.labelDelete}}

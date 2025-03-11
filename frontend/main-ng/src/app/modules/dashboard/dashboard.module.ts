@@ -7,6 +7,12 @@ import { NavHomeComponent } from './components/nav-home/nav-home.component';
 import { BodyHomeComponent } from './components/body-home/body-home.component';
 import { TableProductsComponent } from './components/table-products/table-products.component';
 import { FooterHomeComponent } from './components/footer-home/footer-home.component';
+import { SharedModule } from "../shared/shared.module";
+import { ShoppingCarClientComponent } from './components/shopping-car-client/shopping-car-client.component';
+import { QuantityPipePipe } from '../../pipes/quantity-pipe.pipe';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { TotalPayComponent } from './components/total-pay/total-pay.component';
 
 
 @NgModule({
@@ -15,12 +21,19 @@ import { FooterHomeComponent } from './components/footer-home/footer-home.compon
     NavHomeComponent,
     BodyHomeComponent,
     TableProductsComponent,
-    FooterHomeComponent
+    FooterHomeComponent,
+    ShoppingCarClientComponent,
+    QuantityPipePipe,
+    TotalPayComponent
   ],
   imports: [
     CommonModule,
-    DashboardRoutingModule
-  ],
+    DashboardRoutingModule,
+    SharedModule,
+    FormsModule,
+    RouterModule
+  
+],
   exports:[
     NavHomeComponent,
     TableProductsComponent,

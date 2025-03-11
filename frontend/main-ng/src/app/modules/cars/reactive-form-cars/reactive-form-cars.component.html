@@ -1,0 +1,73 @@
+<div class="d-flex justify-content-center align-items-center flex-column">
+
+    <div>
+
+        Cars Form template
+    </div>
+
+
+    <div class="w-50">
+        <form [formGroup]="formCarReactive" (ngSubmit)="saveCarReactiveForm()">
+            <div class="form-group flex-column mb-2">
+                <!-- Primer input -->
+                <div class="d-flex align-items-center mb-3">
+                    <label for="brandId" class="form-label me-3" style="width: 100px;">Brand:</label>
+                    <input type="text" class="form-control" formControlName="brand" name="brand" id="brandId">
+
+                    <div class="alert alert-warning"
+                        *ngIf="formCarReactive.get('brand')?.touched && formCarReactive.get('brand')?.errors?.['required']">
+
+                    </div>
+
+                </div>
+
+                <div class="d-flex align-items-center mb-3">
+                    <label for="modelId" class="form-label me-3" style="width: 100px;">Model:</label>
+                    <input type="text" class="form-control" formControlName="model" name="model" id="modelId">
+
+                    <!-- Mensaje de error si el campo 'model' es requerido y ha sido tocado -->
+                    <div class="alert alert-warning"
+                        *ngIf="formCarReactive.get('model')?.touched && formCarReactive.get('model')?.errors?.['required']">
+                        Model is required.
+                    </div>
+                </div>
+
+                <!-- Tercer input: Year -->
+                <div class="d-flex align-items-center mb-3">
+                    <label for="yearId" class="form-label me-3" style="width: 100px;">Year:</label>
+                    <input type="text" class="form-control" formControlName="year" name="year" id="yearId">
+
+                    <!-- Mensaje de error si el campo 'year' es requerido y ha sido tocado -->
+                    <div class="alert alert-warning"
+                        *ngIf="formCarReactive.get('year')?.touched && formCarReactive.get('year')?.errors?.['required']">
+                        Year is required.
+                    </div>
+                </div>
+
+                <!-- Cuarto input: Type -->
+                <div class="d-flex align-items-center mb-3">
+                    <label for="typeId" class="form-label me-3" style="width: 100px;">Type:</label>
+                    <input type="text" class="form-control" formControlName="type" name="type" id="typeId">
+
+                    <!-- Mensaje de error si el campo 'type' es requerido y ha sido tocado -->
+                    <div class="alert alert-warning"
+                        *ngIf="formCarReactive.get('type')?.touched && formCarReactive.get('type')?.errors?.['required']">
+                        Type is required.
+                    </div>
+                </div>
+
+
+
+
+
+
+                <button type="submit" class="btn btn-primary">Send</button>
+            </div>
+        </form>
+
+
+
+
+
+    </div>
+</div>

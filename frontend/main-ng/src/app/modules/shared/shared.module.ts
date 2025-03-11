@@ -5,6 +5,7 @@ import { FootPlaceComponent } from './components/foot-place/foot-place.component
 import { PersonTableComponent } from './components/person-table/person-table.component';
 import { FormsModule } from '@angular/forms';
 import { CrudButtonComponent } from './components/crud-button/crud-button.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -17,7 +18,8 @@ import { CrudButtonComponent } from './components/crud-button/crud-button.compon
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    RouterModule
 
   ],
   exports: [

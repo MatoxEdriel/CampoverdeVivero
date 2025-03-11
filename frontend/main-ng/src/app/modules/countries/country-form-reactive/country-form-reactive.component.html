@@ -1,0 +1,129 @@
+<div class="container text=center">
+    <div class="row">
+        <div class="col">
+            <div class="container border p-3">
+
+                <div class="d-flex justify-content-center align-items-center flex-column shadow p-3">
+                    <div>
+                        <h1>
+                            Countries form Reactive
+                        </h1>
+
+
+                    </div>
+
+
+                    <div class="w-50">
+                        <form [formGroup]="formCountryReactive" (ngSubmit)="saveCountriesReactiveForm()">
+                            <div class="form-group flex-column mb-2">
+                                <!-- Nombre pais -->
+                                <div class="align-items-center mb-3">
+                                    <label for="nombrePaisId" class="form-label me-3"
+                                        style="width: 100px;">Nombre:</label>
+                                    <input type="text" class="form-control" formControlName="nombrePais"
+                                        name="nombrePais" id="nombrePaisId">
+
+                                    <div class="alert alert-warning"
+                                        *ngIf="formCountryReactive.get('nombrePais')?.touched && formCountryReactive.get('nombrePais')?.errors?.['required']">
+                                        country's name is required
+                                    </div>
+
+                                </div>
+
+                                <div class="align-items-center mb-3">
+                                    <label for="acronimoId" class="form-label me-3"
+                                        style="width: 100px;">Acronimo:</label>
+                                    <input type="text" class="form-control" formControlName="acronimo" name="acronimo"
+                                        id="acronimoId">
+
+                                    <!-- Mensaje de error si el campo 'model' es requerido y ha sido tocado -->
+                                    <div class="alert alert-warning w-100 "
+                                        *ngIf="formCountryReactive.get('acronimo')?.touched && formCountryReactive.get('acronimo')?.errors?.['required']">
+                                        Acronimo is required
+                                    </div>
+
+                                    <div class="alert alert-warning w-100"
+                                        *ngIf="formCountryReactive.get('acronimo')?.errors?.['minLenght'] && formCountryReactive.get('acronimo')?.errors?.['maxLenght']">
+                                        los caracteres debe ser minimo 3 caracteres y maximo 3 caracteres
+                                    </div>
+
+
+
+                                </div>
+
+                                <!-- Tercer input: codigode pais -->
+                                <div class="align-items-center mb-3">
+                                    <label for="codeCountryId" class="form-label me-3" style="width: 100px;">Codigo del
+                                        pais: +</label>
+                                    <input type="text" class="form-control" formControlName="codeCountry"
+                                        name="codeCountry" id="codeCountryId">
+
+                                    <!-- Mensaje de error si el campo 'year' es requerido y ha sido tocado -->
+                                    <div class="alert alert-warning"
+                                        *ngIf="formCountryReactive.get('codeCountry')?.touched && formCountryReactive.get('codeCountry')?.errors?.['required']">
+                                        code country is requerired.
+                                    </div>
+                                </div>
+
+                                <!-- Cuarto input: Type -->
+                                <div class="align-items-center mb-3">
+                                    <label for="continentId" class="form-label me-3"
+                                        style="width: 100px;">Continent:</label>
+
+                                    <select class="form-control" formControlName="continent" id="continentId">
+                                        <option value="" disabled selected>Select Continent</option>
+                                        <option *ngFor="let continent of continents" [value]="continent">{{ continent }}
+                                        </option>
+                                    </select>
+
+
+                                    <div class="alert alert-warning"
+                                        *ngIf="formCountryReactive.get('continent')?.touched && formCountryReactive.get('continent')?.errors?.['required']">
+                                        continent is required xd.
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+                                <button type="submit" class="btn btn-success" (click)="loadTable()"  >Send</button>
+                            </div>
+                        </form>
+
+
+
+
+
+                    </div>
+                </div>
+
+
+
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+        <div class="col">
+
+            <div class="container border p-3">
+                <app-table-country>
+
+                </app-table-country>
+
+
+            </div>
+
+        </div>
+    </div>
+
+</div>

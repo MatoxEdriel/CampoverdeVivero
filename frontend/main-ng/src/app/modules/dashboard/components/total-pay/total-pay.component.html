@@ -1,0 +1,34 @@
+<p class="display-2">Total</p>
+
+<div class="form-control">
+
+    <div>
+        Subtotal: <span>{{carSummary.subtotal | currency }}</span>
+    </div>
+
+    <div>
+
+        IVA 15%: <span>{{carSummary.iva | currency }}</span>
+    </div>
+
+    <div>
+
+        Subtotal + IVA: <span>{{carSummary.subtotalIva| currency }}</span>
+    </div>
+
+    <div>
+
+        Descuento: <span>{{carSummary.descuento | currency }}</span>
+    </div>
+
+    <div>
+
+        Total a pagar : <span>{{carSummary.total | currency }}</span>
+    </div>
+
+
+
+
+
+
+</div>

@@ -1,0 +1,159 @@
+<table class="table table-hover table-sm table-bordered">
+    <thead>
+        <th>
+            #
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Acronimo
+        </th>
+        <th>
+            Code country
+        </th>
+        <th>
+            Country
+        </th>
+        <th>
+            Options
+        </th>
+
+    </thead>
+    <tbody>
+        <!-- Ya que cargare informacion debo emepzar con una tabla  -->
+
+        <ng-container *ngIf="statusData == 'init'">
+            <!-- por estado? es un bloque de contenido html donde se renderiza cuando angular 
+             lo necesita, y tiene sentido porque se generara en cuanto cargue la informacion 
+             del api en cuestiom  PRIMER ESTADO QUE NO HAYA INFORMACION  pero es mientras cargue -->
+
+            <tr>
+                <td colspan="4" class="text-center ">Cargando paises.....</td>
+            </tr>
+
+        </ng-container>
+
+        <ng-container *ngIf="statusData=='success'">
+            <!--cuando haya informacion se carga este -->
+            <tr *ngFor="let country of countries; let i=index">
+                <!-- 
+//Usaremos el conteo automatico de bootstrap  -->
+                <td>{{ i+1}}</td>
+                <td>{{country.countryName}}</td>
+                <td>{{country.acronimo}}</td>
+                <td>{{country.codeCountry}}</td>
+                <td>{{country.continent}}</td>
+
+
+                <td>
+                    <button class="btn btn-primary m-1" type="button" data-bs-toggle="modal"
+                        [attr.data-bs-target]="'#countryUpdate'" (click)="selectCountryUpdate(country)"><i
+                            class="fa fa-edit ">
+
+                        </i>
+
+                    </button>
+
+                    <button class="btn btn-danger" type="button"   data-bs-toggle="modal"  data-bs-target="#deleteCountryModal"
+                        (click)="dataToDelete(country._id!)"><i class="fa fa-trash ">
+
+
+                        </i>
+
+                    </button>
+                </td>
+
+            </tr>
+
+
+        </ng-container>
+        <ng-container *ngIf="statusData=='empty'">
+            <!--Cuando no EXISTE datos para la table -->
+            <tr>
+                <td colspan="4" class="text-center ">Sin paises registrado</td>
+            </tr>
+        </ng-container>
+
+
+    </tbody>
+</table>
+
+
+
+
+<div class="modal fade" [id]="'countryUpdate'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="h2">
+                    Pa&iacute;ses
+                </div>
+            </div>
+            <div class="modal-body">
+                <!-- ATRIBUTOS DEL FORMULARIO -->
+                <form>
+                    <div>
+                        <label for="nameid">Nombre:</label>
+                        <input class="form-control" type="text" [(ngModel)]="nameUpdated" name="namename" id="nameid">
+                    </div>
+                    <div>
+                        <label for="acronymid">Acr&oacute;nimo:</label>
+                        <input class="form-control" type="text" [(ngModel)]="acronimoUpdated" name="acronymname"
+                            id="acronymid">
+                    </div>
+                    <div>
+                        <label for="countryCodeid">C&oacute;digo de pa&iacute;s:</label>
+                        <input class="form-control" type="text" [(ngModel)]="countryCodeUpdate" name="contryCodename"
+                            id="countryCodeid">
+                    </div>
+                    <div>
+                        <label for="continentid">Continente:</label>
+                        <select [(ngModel)]="continentUpdated" class="form-select" name="continentname"
+                            id="continentid">
+                            <option value="">Seleccione un continente</option>
+                            <option value="América">Am&eacute;rica</option>
+                            <option value="Asia">Asia</option>
+                            <option value="Europa">Europa</option>
+                            <option value="Africa">&Aacute;frica</option>
+                            <option value="Oceania">Oceania</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" (click)="updateCountry()"
+                    data-bs-dismiss="modal">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!--MOdal de eliminado -->
+
+
+
+<div class="modal fade" id="deleteCountryModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Eliminación de país</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ¿Está seguro de eliminar al país seleccionado?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                    (click)="deleteCountry()">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>

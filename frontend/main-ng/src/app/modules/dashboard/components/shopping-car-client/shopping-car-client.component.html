@@ -1,0 +1,66 @@
+<div class="form-control m-2">
+    <div class="display-6">
+        <h1>Product Selected</h1>
+    </div>
+    <table class="table table-hover table-bordered">
+        <thead class="m-1">
+            <th>#</th>
+            <th>
+                Product
+            </th>
+            <th>
+                Category
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                options
+            </th>
+        </thead>
+        <tbody>
+            @if(lstProductSelected.length > 0){
+            <tr *ngFor="let product of lstProductSelected">
+                <td>
+                    {{product.id}}
+                </td>
+                <td>
+                    {{product.product}}
+                </td>
+                <td>
+                    {{product.category}}
+                </td>
+                <td>
+
+                    {{product.stock | quantityPipe}}
+
+                </td>
+                <td>
+                    <!-- <input type="number" [(ngModel)]="product.stock" min="1" (input)="updateTotalPrice(product)"> -->
+                    {{product.price | currency}}
+                </td>
+                <td>
+                    <button class="btn btn-danger" (click)="quitProduct(product)">
+                        <i class="fa fa-trash"></i>
+                    </button>
+                </td>
+
+
+            </tr>
+
+
+            }
+            @else {
+            <div>
+                Sin Productos Seleccionados
+            </div>
+            }
+
+
+        </tbody>
+    </table>
+
+</div>

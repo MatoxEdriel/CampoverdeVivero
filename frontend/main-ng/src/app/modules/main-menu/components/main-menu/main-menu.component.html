@@ -1,0 +1,33 @@
+<body class="d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Vivero Campoverde 3.0</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item" *ngFor="let route of menuRoutes">
+                        <a class="nav-link" [routerLink]="route.route">{{ route.label }}</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenedor principal que crece automáticamente -->
+    <main class="container flex-grow-1">
+        <router-outlet></router-outlet>
+    </main>
+
+    <!-- Footer siempre abajo si hay poco contenido -->
+    <footer class="bg-dark text-white text-center py-3 mt-auto">
+        <app-footer-home></app-footer-home>
+    </footer>
+</body>
