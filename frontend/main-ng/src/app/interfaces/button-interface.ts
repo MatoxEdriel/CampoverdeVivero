@@ -32,4 +32,5 @@ export interface IButtonCrud {
     styleIconRead: string,
     styleIconDelete?: string,
     styleIconUpdate?: string
+
 }

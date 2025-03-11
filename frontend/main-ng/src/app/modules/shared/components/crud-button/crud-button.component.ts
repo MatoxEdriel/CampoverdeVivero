@@ -10,6 +10,8 @@ import { IDevice } from '../../../../interfaces/IDevice';
 export class CrudButtonComponent implements AfterViewInit {
 
 
+
+
   @Input()
   dataDevice:IDevice = {
     id: 0,

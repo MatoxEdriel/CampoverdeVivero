@@ -1,0 +1,20 @@
+
+    <div class="row d-flex">
+        <div class="col-md-6">
+            <app-products-device (aggProductToCarEvent)="addProduct($event)">
+
+            </app-products-device>
+        </div>
+        <div class="col-md-6">
+            <app-shopping-car-client (quitProductEvent)="quiteProductFromSelected($event)">
+                
+            </app-shopping-car-client>
+        </div>
+
+    </div>
+
+    <div class="row p-3">
+
+        <app-total-pay [carSummary]="carSummaryDefault"></app-total-pay>
+
+    </div>

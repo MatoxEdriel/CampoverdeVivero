@@ -1,0 +1,134 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-success">
+                <h1 class="modal-title fs-5 text-light"  id="exampleModalLabel">New Product</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body justify-content-center p-3">
+                <div class="container-fluid">
+                <div class="d-flex mb-3 align-items-center">
+                    <label class="col-sm-3 col-form-label">Product</label>
+                    <input type="text" class="form-control" placeholder="Product" [(ngModel)]="newProduct">
+                </div>
+              
+                <div class="d-flex mb-3 align-items-center">
+                    <label class="col-sm-3 col-form-label">Category</label>
+                    <select class="form-select" [(ngModel)]="newCategory" aria-label="Default select example">
+                        <option selected>Open this select menu</option>
+                        <option value="OC">Ocio</option>
+                        <option value="VA">Varios</option>
+                        <option value="HT">Salud</option>
+                        <option value="CO">Cocina</option>
+                        </select>
+                </div>
+              
+                <div class="d-flex mb-3 align-items-center">
+                    <label class="col-sm-3 col-form-label">Provider</label>
+                    <input type="text" class="form-control" placeholder="Provider" [(ngModel)]="newProvider">
+                </div>
+              
+                <div class="d-flex mb-3 align-items-center">
+                    <label class="col-sm-3 col-form-label">Price</label>
+                    <input type="number" class="form-control" placeholder="price" [(ngModel)]="newPrice">
+                </div>
+
+                <div class="d-flex mb-3 align-items-center">
+                    <label class="col-sm-3 col-form-label">Stock</label>
+                    <input type="number" class="form-control" placeholder="stock" [(ngModel)]="newStock">
+                </div>
+                <!-- Utiliza el operador de navegación segura para acceder a propiedades de objetos que podrían ser undefined -->
+  
+
+
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="addNewProduct()" class="btn btn-success">Register product</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+             
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+<!-- INICIO DE LA TABLA  -->
+<div class="container">
+    <div class="d-flex justify-content-end p-3">
+        <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Register new
+            device</button>
+    </div>
+    <table class="table table-hover table-sm table-bordered">
+        <thead>
+            <th>
+                #
+            </th>
+            <th>
+                Product
+            </th>
+            <th>
+                Category
+            </th>
+            <th>
+                Provider
+            </th>
+            <th>
+                price
+            </th>
+            <th>
+                stock
+            </th>
+            <th>
+                options
+            </th>
+        </thead>
+        <tbody>
+
+
+            <tr *ngFor="let product of lstProduct">
+                <td>
+                    {{ product.id }}
+                </td>
+                <td>
+                    {{ product.product}}
+                </td>
+                <td [ngSwitch]="product.category">
+                    <div *ngSwitchCase="'OC'">
+                        Ocio
+                    </div>
+                    <div *ngSwitchCase="'VA'">
+                        Varios
+                    </div>
+                    <div *ngSwitchCase="'HT'">
+                        Salud
+                    </div>
+                    <div *ngSwitchCase="'CO'">
+                        Cocina
+                    </div>
+                    <div *ngSwitchDefault>
+                        No definido
+                    </div>
+                </td>
+
+                <td>
+                    {{ product.provider }}
+                </td>
+
+                <td>
+                    {{ product.price }}
+                </td>
+                <td>
+                    {{product.stock}}
+                </td>
+
+                <td class="p-3">
+                    <button class="btn btn-primary" type="button" (click)="addProductToCar(product)">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
